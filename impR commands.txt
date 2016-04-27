@@ -1,0 +1,51 @@
+> 6*8
+[1] 48
+> 2^16
+[1] 65536
+> 6*8
+[1] 48
+> 8*10
+[1] 80
+> sqrt(2)
+[1] 1.414214
+> ?sqrt
+starting httpd help server ... done
+> SquareRoot2=sqrt(2)
+> SquareRoot2
+[1] 1.414214
+> HoursYear<-365*24
+> HoursYear
+[1] 8760
+> ls()
+[1] 
+
+-- unit 1 video 5
+
+who_europe=subset(who,Region=="Europe")
+str(who_europe)
+write.csv(who_europe,"who_europe.csv")
+ls()
+rm(who_europe)
+ls()
+who$under15
+str(who)
+who$Under15
+mean(who$Under15)
+sd(who$Under15)
+summary(who$Under15)
+which.min(who$Under15)
+who$Country(86)
+who$country(86)
+ls()
+which.max(who$Under15)
+who$Country(124)
+plot(who$GNI,who$FertilityRate)
+outliers=subset(who,GNI>10000 & FertilityRate>2.5)
+str(outliers)
+nrow(outliers)
+outliers[c("country","GNI",FertilityRate")]
+outliers[c("country","GNI","FertilityRate")]
+outliers[c("Country","GNI","FertilityRate")]
+history()
+
+---
