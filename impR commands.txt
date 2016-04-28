@@ -48,4 +48,136 @@ outliers[c("country","GNI","FertilityRate")]
 outliers[c("Country","GNI","FertilityRate")]
 history()
 
+
+mean(who$Over60)
+
+which.min(who$Under15)
+
+who$Country(183)
 ---
+
+ str(mvt)
+'data.frame':   191641 obs. of  13 variables:
+ $ ID                 : int  8951354 8951141 8952745 8952223 8951608 8950793 8950760 8951611 8951802 8950706 ...
+ $ Date               : Date, format: "2012-12-31" "2012-12-31" ...
+ $ LocationDescription: Factor w/ 78 levels "ABANDONED BUILDING",..: 72 72 62 72 72 72 72 72 72 72 ...
+ $ Arrest             : logi  FALSE FALSE FALSE FALSE FALSE TRUE ...
+ $ Domestic           : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ Beat               : int  623 1213 1622 724 211 2521 423 231 1021 1215 ...
+ $ District           : int  6 12 16 7 2 25 4 2 10 12 ...
+ $ CommunityArea      : int  69 24 11 67 35 19 48 40 29 24 ...
+ $ Year               : int  2012 2012 2012 2012 2012 2012 2012 2012 2012 2012 ...
+ $ Latitude           : num  41.8 41.9 42 41.8 41.8 ...
+ $ Longitude          : num  -87.6 -87.7 -87.8 -87.7 -87.6 ...
+ $ Month              : chr  "December" "December" "December" "December" ...
+ $ Weekday            : chr  "Monday" "Monday" "Monday" "Monday" ...
+> 
+There are two main types of crimes: violent crimes, and property crimes. In this problem, we'll focus on one specific type of property crime, called "motor vehicle theft" (sometimes referred to as grand theft auto). This is the act of stealing, or attempting to steal, a car. In this problem, we'll use some basic data analysis in R to understand the motor vehicle thefts in Chicago. 
+
+Please download the file mvtWeek1.csv for this problem (do not open this file in any spreadsheet software before completing this problem because it might change the format of the Date field). Here is a list of descriptions of the variables:
+
+ID: a unique identifier for each observation
+Date: the date the crime occurred
+LocationDescription: the location where the crime occurred
+Arrest: whether or not an arrest was made for the crime (TRUE if an arrest was made, and FALSE if an arrest was not made)
+Domestic: whether or not the crime was a domestic crime, meaning that it was committed against a family member (TRUE if it was domestic, and FALSE if it was not domestic)
+Beat: the area, or "beat" in which the crime occurred. This is the smallest regional division defined by the Chicago police department.
+District: the police district in which the crime occured. Each district is composed of many beats, and are defined by the Chicago Police Department.
+CommunityArea: the community area in which the crime occurred. Since the 1920s, Chicago has been divided into what are called "community areas", of which there are now 77. The community areas were devised in an attempt to create socially homogeneous regions.
+Year: the year in which the crime occurred.
+Latitude: the latitude of the location at which the crime occurred.
+Longitude: the longitude of the location at which the crime occurred.
+
+
+
+------------------ remaining 3.5 first set
+
+
+The observations in the dataset represent people surveyed in the September 2013 CPS who actually completed a survey. While the full dataset has 385 variables, in this exercise we will use a more compact version of the dataset, CPSData.csv, which has the following variables:
+
+PeopleInHousehold: The number of people in the interviewee's household.
+
+Region: The census region where the interviewee lives.
+
+State: The state where the interviewee lives.
+
+MetroAreaCode: A code that identifies the metropolitan area in which the interviewee lives (missing if the interviewee does not live in a metropolitan area). The mapping from codes to names of metropolitan areas is provided in the file MetroAreaCodes.csv.
+
+Age: The age, in years, of the interviewee. 80 represents people aged 80-84, and 85 represents people aged 85 and higher.
+
+Married: The marriage status of the interviewee.
+
+Sex: The sex of the interviewee.
+
+Education: The maximum level of education obtained by the interviewee.
+
+Race: The race of the interviewee.
+
+Hispanic: Whether the interviewee is of Hispanic ethnicity.
+
+CountryOfBirthCode: A code identifying the country of birth of the interviewee. The mapping from codes to names of countries is provided in the file CountryCodes.csv.
+
+Citizenship: The United States citizenship status of the interviewee.
+
+EmploymentStatus: The status of employment of the interviewee.
+
+Industry: The industry of employment of the interviewee (only available if they are employed).
+
+
+-------
+
+summary(cps)
+ table(CPS$Region, is.na(CPS$Married))
+ table(cps$Region, is.na(cps$Married))
+ table(cps$Sex, is.na(cps$Married))
+ table(cps$Age, is.na(cps$Married))
+ table(cps$State, is.na(cps$MetroAreaCode))
+ table(cps$Region, is.na(cps$MetroAreaCode))
+tapply(cps$State, cps$MetroAreaCode, mean, is.na(cps$MetroAreaCode))
+tapply(cps$State, cps$MetroAreaCode, mean)
+tapply(cps$State,  mean)
+tapply(cps$State,cps$MetroAreaCode, TRUE=1,FALSE=0)  
+tapply(cps$State,cps$MetroAreaCode)  
+tapply(WHO$Over60, WHO$Region, mean)
+tapply(who$Over60, who$Region, mean)
+metroarea=read.csv("MetroAreaCodes.csv") 
+countrymap=read.csv("CountryCodes.csv")
+str(metromap)
+str(metroarea)
+str(countrymap)
+cps = merge(cps, metroarea, by.x="MetroAreaCode", by.y="Code", all.x=TRUE)
+str(cps)
+summary(cps)
+summary(cps$MetroArea)
+max(cps$MetroArea)
+which.max(cps$MetorArea)
+history()
+
+countrymap=read.csv("CountryCodes.csv")
+str(metromap)
+str(metroarea)
+str(countrymap)
+cps = merge(cps, metroarea, by.x="MetroAreaCode", by.y="Code", all.x=TRUE)
+str(cps)
+summary(cps)
+summary(cps$MetroArea)
+max(cps$MetroArea)
+which.max(cps$MetorArea)
+history()
+sort(table(cps$MetroArea)) 
+cps$Race == "Asian" 
+summary(cps$MetroArea, cps$Race == "Asian") 
+str(cps)
+tapply(cps$MetroAreaCode,cps$State,mean)
+tapply(cps$MetroAreaCode,cps$State,mean, na.rm = TRUE)
+mean(cps$MetroAreaCode)
+summary(cps$MetroArea)
+summary(cps$MetroAreaCode)
+str(cps$MetroAreaCode)
+cps$MetroAreaCode
+tapply(cps$MetroAreaCode,cps$State,mean)
+summary(cps$MetroAreaCode)
+str(cps$MetroAreaCode)
+history()
+
+116639                 7073                 7590 
