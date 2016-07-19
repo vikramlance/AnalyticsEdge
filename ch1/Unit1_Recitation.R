@@ -80,3 +80,4 @@ nrow(HighSodium)
   tapply(USDA$VitaminC, USDA$HighCarbs, max, na.rm=TRUE)
 # Using summary function with tapply
   tapply(USDA$VitaminC, USDA$HighCarbs, summary, na.rm=TRUE)
+  #tapply(cps$State, cps$MetroAreaCode, mean, is.na(cps$MetroAreaCode))

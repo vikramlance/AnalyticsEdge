@@ -104,4 +104,6 @@ table(WHO$Region)
 tapply(WHO$Over60, WHO$Region, mean)
 tapply(WHO$LiteracyRate, WHO$Region, min)
 tapply(WHO$LiteracyRate, WHO$Region, min, na.rm=TRUE)
+
+#cps = merge(cps, metroarea, by.x="MetroAreaCode", by.y="Code", all.x=TRUE)
  
